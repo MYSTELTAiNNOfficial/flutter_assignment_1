@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/assignment.dart';
+import 'package:flutter_application_1/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: AssignPage());
+      home: HomePage(),
+      initialRoute: "/home",
+      routes: {
+        "/home": (context) => HomePage(),
+        "/pesan": (context) => PesanPage()
+      },
+    );
   }
 }

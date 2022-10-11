@@ -1,18 +1,22 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
-class AssignPage extends StatefulWidget {
-  const AssignPage({super.key});
+part 'pesan.dart';
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+  static const String routeName = "/home";
 
   @override
-  State<AssignPage> createState() => _AssignPageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _AssignPageState extends State<AssignPage> {
+class _HomePageState extends State<HomePage> {
   Color favicon = Colors.grey;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("data")),
+      appBar: AppBar(title: Text("Home")),
       body: Stack(children: [
         Container(
             decoration: BoxDecoration(
@@ -118,7 +122,7 @@ class _AssignPageState extends State<AssignPage> {
           ),
         ),
         Container(
-          margin:EdgeInsets.only(top: 10),
+          margin: EdgeInsets.only(top: 10),
           child: Align(
             alignment: Alignment.topRight,
             child: ElevatedButton(
@@ -139,6 +143,22 @@ class _AssignPageState extends State<AssignPage> {
                     fixedSize: Size(50, 50),
                     backgroundColor: Colors.grey.shade100,
                     shape: CircleBorder())),
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(bottom: 10, right: 10),
+          child: Align(
+            alignment: Alignment.bottomRight,
+            child: ElevatedButton(
+              child: Text("Book Now"),
+              onPressed: () {
+                Navigator.pushNamed(context, PesanPage.routeName);
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueAccent,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20))),
+            ),
           ),
         )
       ]),
